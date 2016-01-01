@@ -1,0 +1,37 @@
+{
+  "name": "webpack-starter",
+  "version": "0.0.1",
+  "description": "webpack starter",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jimexist/webpack-starter.git"
+  },
+  "keywords": [
+    "webpack",
+    "starter"
+  ],
+  "author": "Jiayu Liu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jimexist/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/Jimexist/webpack-starter#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.2.3",
+    "babel": "^6.3.26",
+    "babel-core": "^6.3.26",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "postcss": "^5.0.13",
+    "postcss-import": "^7.1.3",
+    "postcss-loader": "^0.8.0",
+    "precss": "^1.4.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.9"
+  }
+}
