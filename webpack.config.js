@@ -2,6 +2,7 @@ var path         = require('path');
 var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
 var atImport     = require('postcss-import');
+var cssnano      = require('cssnano');
 
 var config = {
   entry: path.resolve(__dirname, 'src/index.js'),
@@ -10,7 +11,7 @@ var config = {
     filename: "[name].js"
   },
   postcss: function() {
-    return [atImport, autoprefixer, precss];
+    return [atImport, autoprefixer, precss, cssnano];
   },
   module: {
     loaders: [
