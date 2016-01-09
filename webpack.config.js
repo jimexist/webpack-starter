@@ -11,6 +11,13 @@ var config = {
     path: path.resolve(__dirname, 'lib'),
     filename: "[name].js"
   },
+  target: 'web',
+  cache: true,
+  debug: true,
+  stats: {
+    colors: true,
+    reasons: true
+  },
   resolve: {
     extensions: [
       "", ".js", ".jsx"
