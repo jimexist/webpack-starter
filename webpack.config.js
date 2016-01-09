@@ -11,6 +11,11 @@ var config = {
     path: path.resolve(__dirname, 'lib'),
     filename: "[name].js"
   },
+  resolve: {
+    extensions: [
+      "", ".js", ".jsx"
+    ]
+  },
   postcss: function() {
     return [lost, atImport, autoprefixer, precss, cssnano];
   },
