@@ -11,6 +11,7 @@ var config = {
     path: path.resolve(__dirname, 'lib'),
     filename: "[name].js"
   },
+  devtool: 'sourcemap',
   target: 'web',
   cache: true,
   debug: true,
