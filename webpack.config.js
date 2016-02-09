@@ -6,7 +6,7 @@ var cssnano      = require('cssnano');
 var lost         = require('lost');
 
 var config = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, 'tsDist/index.js'),
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: "[name].js"

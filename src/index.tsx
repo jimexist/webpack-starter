@@ -1,5 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+/// <reference path="../typings/main.d.ts" />
+
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import './styles.css';
 import * as reducers from './reducers.js';
 import { createStore, combineReducers, applyMiddleware } from 'redux';

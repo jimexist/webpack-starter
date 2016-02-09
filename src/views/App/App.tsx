@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import * as React from 'react';
+import { Component, PropTypes } from 'react';
 import styles from './App.css';
 
-class App extends Component {
+class App extends Component<any, any> {
 
   render() {
     return (
