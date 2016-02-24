@@ -9,6 +9,7 @@ var config = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'lib'),
+    publicPath: '/lib/',
     filename: "[name].js"
   },
   devtool: 'sourcemap',
