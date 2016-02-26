@@ -6,7 +6,9 @@ var cssnano      = require('cssnano');
 var lost         = require('lost');
 
 var config = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: {
+    main: [path.resolve(__dirname, 'src/index.js')],
+  },
   output: {
     path: path.resolve(__dirname, 'lib'),
     publicPath: '/lib/',
@@ -28,6 +30,7 @@ var config = {
   postcss: function() {
     return [lost, atImport, autoprefixer, precss, cssnano];
   },
+  plugins: [],
   module: {
     loaders: [
       {

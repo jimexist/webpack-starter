@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --color",
     "lint": "./node_modules/.bin/eslint src/**/*.{js,jsx}",
-    "watch": "webpack --progress --color --watch",
+    "dev": "node webpack.dev.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,7 +33,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.23.1",
     "cssnano": "^3.5.2",
-    "eslint": "^2.1.0",
+    "eslint": "^1.10.3",
     "eslint-config-airbnb": "^5.0.1",
     "eslint-plugin-react": "^3.14.0",
     "file-loader": "^0.8.5",
@@ -44,7 +44,8 @@
     "precss": "^1.4.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "history": "^2.0.0-rc2",

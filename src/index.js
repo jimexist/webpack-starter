@@ -12,9 +12,11 @@ import createLogger from 'redux-logger';
 
 import App from './views/App/App';
 
-const reducer = combineReducers(Object.assign({}, reducers, {
+const reducer = combineReducers({
+  ...reducers,
   routing: routeReducer
-}));
+});
+
 const reduxRouterMiddleware = syncHistory(browserHistory);
 const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware, thunk, promise, logger)(createStore);
