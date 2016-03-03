@@ -44,4 +44,4 @@ bower_components
 .bower-registry
 .bower-tmp
 
-lib/
+dist/
