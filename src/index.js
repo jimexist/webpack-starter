@@ -4,7 +4,7 @@ import './styles.css';
 import * as reducers from './reducers.js';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { syncHistory, routeReducer } from 'react-router-redux';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { Router, IndexRoute, Route, browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
@@ -15,20 +15,20 @@ import Home from './views/Home/Home';
 
 const reducer = combineReducers({
   ...reducers,
-  routing: routeReducer
+  routing: routerReducer,
 });
 
-const reduxRouterMiddleware = syncHistory(browserHistory);
 const logger = createLogger();
-const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware, thunk, promise, logger)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk, promise, logger)(createStore);
 const store = createStoreWithMiddleware(reducer);
+const history = syncHistoryWithStore(browserHistory, store);
 
 // Required for replaying actions from devtools to work
 // reduxRouterMiddleware.listenForReplays(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
       </Route>
