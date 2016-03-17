@@ -1,3 +1,4 @@
+/* @flow */
 import React, { PropTypes, Component } from 'react';
 import styles from './Home.css';
 
@@ -14,6 +15,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
+  name: PropTypes.string.isRequired,
 }
 
 export default Home;

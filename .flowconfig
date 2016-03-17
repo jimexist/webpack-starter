@@ -1,0 +1,11 @@
+[ignore]
+.*/react/node_modules/.*
+
+[include]
+
+[libs]
+./interfaces/CSSModule.js
+
+[options]
+module.name_mapper='.*\(.css\)' -> 'CSSModule'
+module.system=haste
