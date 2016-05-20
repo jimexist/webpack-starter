@@ -4,7 +4,7 @@ MAINTAINER Jiayu Liu <etareduce@gmail.com>
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
 
-COPY package.json /opt/app
+COPY package.json npm-shrinkwrap.json /opt/app
 RUN npm install
 
 COPY . /opt/app
