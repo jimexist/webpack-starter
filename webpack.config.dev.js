@@ -1,9 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
-var _ = require('lodash');
-var common = require('./webpack.config.common');
+const path = require('path');
+const webpack = require('webpack');
+const common = require('./webpack.config.common');
 
-module.exports = _.merge({}, common, {
+module.exports = Object.assign({}, common, {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE

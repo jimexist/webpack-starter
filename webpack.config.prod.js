@@ -1,9 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
-var _ = require('lodash');
-var common = require('./webpack.config.common');
+const path = require('path');
+const webpack = require('webpack');
+const common = require('./webpack.config.common');
 
-module.exports = _.merge({}, common, {
+module.exports = Object.assign({}, common, {
   devtool: 'source-map',
   entry: [
     path.resolve(__dirname, 'src/index'),

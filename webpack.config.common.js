@@ -1,9 +1,4 @@
-var path = require('path');
-var autoprefixer = require('autoprefixer');
-var precss = require('precss');
-var atImport = require('postcss-import');
-var cssnano = require('cssnano');
-var lost = require('lost');
+const path = require('path');
 
 module.exports = {
   output: {
@@ -16,9 +11,13 @@ module.exports = {
       "", ".js", ".jsx"
     ]
   },
-  postcss: function() {
-    return [lost, atImport, autoprefixer, precss, cssnano];
-  },
+  postcss: () => ([
+    require('lost'),
+    require('postcss-import'),
+    require('autoprefixer'),
+    require('precss'),
+    require('cssnano')
+  ]),
   module: {
     loaders: [
       {
