@@ -6,9 +6,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { Router, IndexRoute, Route, browserHistory } from 'react-router';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise';
 import createLogger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 
 import App from './views/App/App';
 import Home from './views/Home/Home';
@@ -19,7 +18,8 @@ const reducer = combineReducers({
 });
 
 const logger = createLogger();
-const createStoreWithMiddleware = applyMiddleware(thunk, promise, logger)(createStore);
+const sagaMiddleware = createSagaMiddleware();
+const createStoreWithMiddleware = applyMiddleware(sagaMiddleware, logger)(createStore);
 const store = createStoreWithMiddleware(reducer);
 const history = syncHistoryWithStore(browserHistory, store);
 
