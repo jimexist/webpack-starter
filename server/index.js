@@ -24,16 +24,32 @@ const app = express();
 //   secret: 'c1c5089b5928b7acd4903ccf7171836a'
 // }));
 
-app.use(morgan('combined'));
-app.use(helmet());
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'));
+  const webpack = require('webpack');
+  const devConfig = require('../webpack.config.dev');
+  const compiler = webpack(devConfig);
+  app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: devConfig.output.publicPath
+  }));
+  app.use(require('webpack-hot-middleware')(compiler));
+} else {
+  app.use(morgan('combined'));
+  app.use(helmet());
+  app.use('/static', express.static(path.join(__dirname, '..', 'dist')));
+}
 
-app.use('/static', express.static(path.join(__dirname, '..', 'dist')));
+// for api routes
+// enable body parser
+// const bodyParser = require('body-parser');
+// app.use(bodyParser.json())
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
-const host = process.env.HOST || 'localhost';
+const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 3000;
 
 app.listen(port, host, err => {

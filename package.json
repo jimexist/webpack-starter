@@ -10,7 +10,7 @@
     "prebuild": "npm run test && npm run build:clean",
     "build:clean": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --color -p",
-    "start": "node devServer.js",
+    "start": "cross-env NODE_ENV=dev node server",
     "lint": "eslint src",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test mocha"
